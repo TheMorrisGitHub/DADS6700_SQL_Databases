@@ -10,3 +10,6 @@ sudo mycli
 
 4.- Test database:
 sudo mysql -u root -p classicmodels < DarioGarza_Homework4.sql | tee output.txt
+
+5.- Upload Database:
+sudo mysql miskatonic_university < miskatonic_ddl.sql
