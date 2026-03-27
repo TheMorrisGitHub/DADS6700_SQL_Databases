@@ -1,0 +1,12 @@
+
+1.- Verify Status:
+ps aux | grep mysqld | grep -v grep
+
+2.- Start Service:
+sudo service mysql start
+
+3.- Open Client:
+sudo mycli
+
+4.- Test database:
+sudo mysql -u root -p classicmodels < DarioGarza_Homework4.sql | tee output.txt

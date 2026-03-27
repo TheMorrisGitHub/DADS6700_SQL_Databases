@@ -1,0 +1,36 @@
+customerNumber	customerName	total_order_value
+141	Euro+ Shopping Channel	668770.46
+124	Mini Gifts Distributors Ltd.	584188.24
+114	Australian Collectors, Co.	180585.07
+151	Muscle Machine Inc	177913.95
+148	Dragon Souveniers, Ltd.	156251.03
+employeeNumber	lastName	firstName	manager	level
+1370	Hernandez	Gerard	1102	4
+1625	Kato	Yoshimi	1621	4
+1323	Vanauf	George	1143	4
+1286	Tseng	Foon Yue	1143	4
+1216	Patterson	Steve	1143	4
+1188	Firrelli	Julie	1143	4
+1166	Thompson	Leslie	1143	4
+1165	Jennings	Leslie	1143	4
+1702	Gerard	Martin	1102	4
+1504	Jones	Barry	1102	4
+1501	Bott	Larry	1102	4
+1401	Castillo	Pamela	1102	4
+1337	Bondur	Loui	1102	4
+1619	King	Tom	1088	4
+1612	Marsh	Peter	1088	4
+1611	Fixter	Andy	1088	4
+1621	Nishi	Mami	1056	3
+1143	Bow	Anthony	1056	3
+1102	Bondur	Gerard	1056	3
+1088	Patterson	William	1056	3
+1076	Firrelli	Jeff	1002	2
+1056	Patterson	Mary	1002	2
+1002	Murphy	Diane	NULL	1
+productCode	totalProfit
+S18_3232	135996.78
+S10_1949	95282.58
+S12_1108	93349.65
+S10_4698	81031.30
+S12_1099	72579.26

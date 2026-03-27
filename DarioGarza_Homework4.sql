@@ -79,7 +79,7 @@ GROUP BY o.productCode
 ORDER BY totalProfit DESC
 LIMIT 5;
 
---Problem 4. Using the database (schema) “classicmodels” on Class Lab Virtual Machine to solve following questions:
+-- Problem 4. Using the database (schema) “classicmodels” on Class Lab Virtual Machine to solve following questions:
 --    Create a stored procedure called ‘customers_details’ retrieving customers table.
 
 
