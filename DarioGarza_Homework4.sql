@@ -64,7 +64,7 @@ WITH RECURSIVE subordinates AS (
 )
 
 SELECT * FROM subordinates
-ORDER BY level, level desc;
+ORDER BY level DESC;
 
 
 -- Problem 3. Create a SQL query that retrieves the productCode and totalProfit of top 5 products with the highest total profit value.
@@ -82,15 +82,22 @@ LIMIT 5;
 --Problem 4. Using the database (schema) “classicmodels” on Class Lab Virtual Machine to solve following questions:
 --    Create a stored procedure called ‘customers_details’ retrieving customers table.
 
+
+
 DROP PROCEDURE IF EXISTS customers_details;
+DELIMITER //
 CREATE PROCEDURE customers_details()
 BEGIN
     SELECT * FROM customers;
-END;
+END //
+
+DELIMITER ;
 
 --    Create a stored procedure called ‘In_process_order’ retrieving customerNumber, customerName, phone of the customers with status ‘In_process’ (In Process).
 
+
 DROP PROCEDURE IF EXISTS In_process_order;
+DELIMITER //
 CREATE PROCEDURE In_process_order()
 BEGIN
     SELECT c.customerNumber, c.customerName, c.phone
@@ -98,15 +105,21 @@ BEGIN
     JOIN orders o
     ON c.customerNumber = o.customerNumber
     WHERE o.status = 'In Process';
-END;
+END //
+
+DELIMITER ;
 
 --    Create a stored procedure called ‘office_insert’ inserting new tuple into office table, providing officeCode and city.
 --       This store procedure won't work... offices table have many not null values, and we are not providing those values in the procedure.
 DROP PROCEDURE IF EXISTS office_insert;
+DELIMITER //
 CREATE PROCEDURE office_insert(IN officeCode VARCHAR(10), IN city VARCHAR(50))
 BEGIN
     INSERT INTO offices (officeCode, city) VALUES (officeCode, city);
-END;    
+END //
+
+DELIMITER ;
+
 
 
 
