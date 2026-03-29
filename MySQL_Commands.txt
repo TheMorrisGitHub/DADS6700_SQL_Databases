@@ -13,3 +13,9 @@ sudo mysql -u root -p classicmodels < DarioGarza_Homework4.sql | tee output.txt
 
 5.- Upload Database:
 sudo mysql miskatonic_university < miskatonic_ddl.sql
+
+6.- Install Jupyter with Python connector:
+pip install jupyter notebook mysql-connector-python pandas matplotlib seaborn
+
+7.- Launch Jupyer in browser:
+jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser
