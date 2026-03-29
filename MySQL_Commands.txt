@@ -19,3 +19,7 @@ pip install jupyter notebook mysql-connector-python pandas matplotlib seaborn
 
 7.- Launch Jupyer in browser:
 jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser
+jupyter server list
+
+8.- Export schema
+sudo mysqldump --no-data miskatonic_university > schema.sql
