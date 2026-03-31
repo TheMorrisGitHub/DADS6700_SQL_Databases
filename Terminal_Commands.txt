@@ -23,3 +23,6 @@ jupyter server list
 
 8.- Export schema
 sudo mysqldump --no-data miskatonic_university > schema.sql
+
+9.- Forward ports through HTTPS in VM to Codespace:
+gh cs port-forward 3306:3306 -c scaling-yodel-v5x5qjv5q4vcx47x
