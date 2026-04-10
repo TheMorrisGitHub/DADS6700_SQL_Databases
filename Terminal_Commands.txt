@@ -25,5 +25,7 @@ jupyter server list
 sudo mysqldump --no-data miskatonic_university > schema.sql
 
 9.- Forward ports through HTTPS in VM to Codespace:
-gh cs port-forward 3306:3307 scaling-yodel-v5x5qjv5q4vcx47x
 gh codespace ports forward 3306:3307 -c scaling-yodel-v5x5qjv5q4vcx47x
+
+10.- Avoid inactivity:
+watch -n 60 date

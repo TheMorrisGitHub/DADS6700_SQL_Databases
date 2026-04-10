@@ -1,0 +1,82 @@
+-- 1.- Simple Query
+SELECT * FROM enrollments
+
+-- 2. Aggregate
+SELECT COUNT(*) as 'Deny counting' FROM deny_capacity_logs
+
+-- 3. Inner join/outer join
+SELECT p.id, p.first_name, p.last_name
+FROM persons p
+INNER JOIN professors prof
+ON p.id = prof.person_id
+ORDER BY p.id
+
+-- 4. Nested query-- 5. Correlated query
+-- Students enrolled in the course with the most students
+SELECT s.id, p.first_name, p.last_name, e.course_id
+FROM enrollments e
+JOIN students s
+    ON s.id = e.student_id
+JOIN persons p
+    ON p.id = s.person_id
+WHERE e.course_id = (
+    SELECT course_id -- This is where the nested query is located
+    FROM enrollments
+    GROUP BY course_id
+    ORDER BY COUNT(*) DESC
+    LIMIT 1
+)
+
+
+-- 5. Correlated query
+-- Students with more enrollments than the average student
+
+SELECT s.id, p.first_name, p.last_name
+FROM students s
+JOIN persons p
+    ON p.id = s.person_id
+WHERE (
+    SELECT COUNT(*) -- Here is the count condition, we count and then use the operator ">" agaisnt the average in the correlated query.
+    FROM enrollments e
+    WHERE e.student_id = s.id
+) > (
+    SELECT AVG(student_count)
+    FROM (
+        SELECT COUNT(*) AS student_count
+        FROM enrollments
+        GROUP BY student_id
+    ) AS counts_per_student
+)
+
+
+-- 6. >=ALL/>ANY/Exists/Not Exists
+-- EXISTS
+-- Professors who have at least one course assigned
+SELECT prof.id, p.first_name, p.last_name
+FROM professors prof
+JOIN persons p
+    ON p.id = prof.person_id
+WHERE EXISTS (
+    SELECT 1
+    FROM courses c
+    WHERE c.professor_id = prof.id
+)
+
+-- NOT EXISTS
+-- Students that are not under "remote" modality
+SELECT s.id, p.first_name, p.last_name
+FROM students s
+JOIN persons p
+    ON p.id = s.person_id
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM remote_students r
+    WHERE r.student_id = s.id
+)
+
+
+-- 7. Set operations (Union)
+asdasd
+
+
+-- 8. Subqueries in Select and From
