@@ -75,8 +75,45 @@ WHERE NOT EXISTS (
 )
 
 
--- 7. Set operations (Union)
-asdasd
+-- 7. Set operations (UNION ALL)
+-- Combine on-site and remote students into one list
+
+SELECT s.id AS student_id, p.first_name, p.last_name, 'ON_SITE' AS modality
+FROM on_site_students oss
+JOIN students s
+    ON s.id = oss.student_id
+JOIN persons p
+    ON p.id = s.person_id
+
+UNION ALL
+
+SELECT s.id AS student_id, p.first_name, p.last_name, 'REMOTE' AS modality
+FROM remote_students rs
+JOIN students s
+    ON s.id = rs.student_id
+JOIN persons p
+    ON p.id = s.person_id
+ORDER BY student_id
 
 
 -- 8. Subqueries in Select and From
+SELECT s.id, p.first_name, p.last_name, counts.total_enrollments,
+    (
+        SELECT AVG(student_count)
+        FROM (
+            SELECT COUNT(*) AS student_count
+            FROM enrollments
+            GROUP BY student_id
+        ) AS avg_table
+    ) AS avg_enrollments
+FROM (
+    SELECT student_id, COUNT(*) AS total_enrollments
+    FROM enrollments
+    GROUP BY student_id
+) AS counts
+JOIN students s
+    ON s.id = counts.student_id
+JOIN persons p
+    ON p.id = s.person_id
+
+
